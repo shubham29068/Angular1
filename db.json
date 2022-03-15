@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "name": "wxwse",
+      "email": "sdv",
+      "mobile": "sxa",
+      "address": "sxa",
+      "service": "sxa"
+    },
+    {
+      "id": 3,
+      "name": "Drumbell",
+      "email": "drumbell@kdc.com",
+      "mobile": "26474861123",
+      "address": "phase 0 mohali punjab",
+      "service": "tea"
+    },
+    {
+      "id": 4,
+      "name": "Drumbell",
+      "email": "drumbell@kdc.com",
+      "mobile": "2569450",
+      "address": "kjhnkugyh",
+      "service": "coffee"
+    },
+    {
+      "id": 5,
+      "name": "wxwse",
+      "email": "sdv",
+      "mobile": "2569450",
+      "address": "asbxyahgxyh",
+      "service": "coffee"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
