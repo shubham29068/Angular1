@@ -1,0 +1,9 @@
+.card {
+    margin-top: 10px;
+    border: 1px solid rebeccapurple;
+    width: 500px;
+    padding: 50px;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+}

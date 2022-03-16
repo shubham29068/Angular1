@@ -1,20 +1,15 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": 6,
+      "name": "dom",
+      "email": "domtest@gmail.com",
+      "mobile": "84894125221",
+      "address": "mohali",
+      "service": "tea"
     },
     {
-      "id": 2,
-      "name": "wxwse",
-      "email": "sdv",
-      "mobile": "sxa",
-      "address": "sxa",
-      "service": "sxa"
-    },
-    {
-      "id": 3,
+      "id": 7,
       "name": "Drumbell",
       "email": "drumbell@kdc.com",
       "mobile": "26474861123",
@@ -22,29 +17,76 @@
       "service": "tea"
     },
     {
-      "id": 4,
-      "name": "Drumbell",
+      "id": 8,
+      "name": "Drumbell7777",
       "email": "drumbell@kdc.com",
-      "mobile": "2569450",
-      "address": "kjhnkugyh",
-      "service": "coffee"
+      "mobile": "26474861123",
+      "address": "phase 0 mohali punjab",
+      "service": "tea"
     },
     {
-      "id": 5,
-      "name": "wxwse",
-      "email": "sdv",
-      "mobile": "2569450",
-      "address": "asbxyahgxyh",
-      "service": "coffee"
-    }
-  ],
-  "comments": [
+      "id": 9,
+      "name": "Drumbelljames",
+      "email": "drumbell@kdc.com",
+      "mobile": "26474861123",
+      "address": "phase 0 mohali punjab",
+      "service": "tea"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 10,
+      "name": "dom1",
+      "email": "domtest@gmail.com",
+      "mobile": "84894125221",
+      "address": "mohali",
+      "service": "tea"
+    },
+    {
+      "id": 14,
+      "name": "dgv",
+      "email": "dbvgsg@dv.com",
+      "mobile": "943508340",
+      "address": "mohali",
+      "service": "tea"
     }
   ],
+  "signup": [
+    {
+      "name": "fhsgggt",
+      "contact": "hcjgtdtk",
+      "email": "fyejdm",
+      "password": "yhrashy",
+      "id": 1
+    },
+    {
+      "name": "test",
+      "contact": "98768987967",
+      "email": "test@test.com",
+      "password": "testtest",
+      "id": 2
+    },
+    {
+      "name": "test",
+      "contact": "34569868678",
+      "email": "test1@test.com",
+      "password": "qwert",
+      "id": 3
+    },
+    {
+      "name": "",
+      "contact": "",
+      "email": "",
+      "password": "",
+      "id": 4
+    },
+    {
+      "name": "wqw",
+      "contact": "saw2",
+      "email": "admin@yopmail.com",
+      "password": "123456",
+      "id": 5
+    }
+  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

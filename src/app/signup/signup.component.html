@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Restro Signup</h1><hr>
+                </div>
+                <form [formGroup]="signupForm" (ngSubmit)="signup()">
+                    <div class="mb-3">
+                        <label  class="form-label">Name</label>
+                        <input formControlName="name" type="email" class="form-control" placeholder="Enter Name" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label  class="form-label">Contact</label>
+                        <input formControlName="contact" type="text" class="form-control" placeholder="Enter Contact Number" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                    <div class="mb-3">
+                      <label  class="form-label">Email address</label>
+                      <input formControlName="email" type="text" class="form-control" placeholder="Enter your Email Address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Password</label>
+                      <input formControlName="password" type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                  
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                  </form>
+                  <a routerLink="/login" style="color: black ; margin-top: 10px;" >Already Registered User</a>
+            </div>
+        </div>
+    </div>
+</div>
