@@ -47,54 +47,6 @@
       "mobile": "987969876",
       "address": "mohali",
       "service": "coffee"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "email": null,
-      "mobile": null,
-      "address": null,
-      "service": null
-    },
-    {
-      "id": 16,
-      "name": null,
-      "email": null,
-      "mobile": null,
-      "address": null,
-      "service": null
-    },
-    {
-      "id": 17,
-      "name": null,
-      "email": null,
-      "mobile": null,
-      "address": null,
-      "service": null
-    },
-    {
-      "id": 18,
-      "name": null,
-      "email": null,
-      "mobile": null,
-      "address": null,
-      "service": null
-    },
-    {
-      "id": 19,
-      "name": null,
-      "email": null,
-      "mobile": null,
-      "address": null,
-      "service": null
-    },
-    {
-      "id": 20,
-      "name": null,
-      "email": null,
-      "mobile": null,
-      "address": null,
-      "service": null
     }
   ],
   "signup": [

@@ -48,7 +48,7 @@ export class RestaurantDashComponent implements OnInit {
       this.formValue.reset()
       this.getAllData()
     }, err => {
-      alert("Fill all values ")
+      alert("Error 404")
     }
     )
   }
