@@ -9,13 +9,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { GooglePayButtonComponent, GooglePayButtonModule } from '@google-pay/button-angular';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantDashComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -15,14 +15,15 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      name: [''],
-      contact: [''],
-      email: [''],
-      password: ['']
+      name: new FormControl(null, [Validators.required]),
+      contact: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required])
     })
   }
   // make method to create user
   signup() {
+    if (!this.signupForm.valid) { alert("fill all fields"); return }
     this._http.post<any>("http://localhost:3000/signup", this.signupForm.value).subscribe(res => {
       alert("Registration successfull")
       this.signupForm.reset()
@@ -31,5 +32,13 @@ export class SignupComponent implements OnInit {
       alert("Error 404")
     }
     )
+  }
+  form() {
+    this.signupForm = this.formBuilder.group({
+      name: new FormControl(null, [Validators.required]),
+      contact: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required])
+    })
   }
 }

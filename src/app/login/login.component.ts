@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -15,12 +15,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: [''],
-      password: ['']
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required])
     })
   }
   // login define
   loggedIn() {
+    if (!this.loginForm.valid) { alert("Invalid form"); return }
     this._http.get<any>("http://localhost:3000/signup").subscribe(res => {
       const user = res.find((a: any) => {
         return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password
@@ -32,6 +33,12 @@ export class LoginComponent implements OnInit {
       } else {
         alert("User not Found")
       }
+    })
+  }
+  form() {
+    this.loginForm = this.formBuilder.group({
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required])
     })
   }
 }

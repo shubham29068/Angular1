@@ -1,14 +1,6 @@
 {
   "posts": [
     {
-      "id": 6,
-      "name": "dom",
-      "email": "domtest@gmail.com",
-      "mobile": "84894125221",
-      "address": "mohali",
-      "service": "tea"
-    },
-    {
       "id": 7,
       "name": "Drumbell",
       "email": "drumbell@kdc.com",
@@ -30,7 +22,7 @@
       "email": "drumbell@kdc.com",
       "mobile": "26474861123",
       "address": "phase 0 mohali punjab",
-      "service": "tea"
+      "service": "tea & rice"
     },
     {
       "id": 10,
@@ -46,7 +38,63 @@
       "email": "dbvgsg@dv.com",
       "mobile": "943508340",
       "address": "mohali",
-      "service": "tea"
+      "service": "coffee"
+    },
+    {
+      "id": 15,
+      "name": "wfc",
+      "email": "wf@fdx.com",
+      "mobile": "987969876",
+      "address": "mohali",
+      "service": "coffee"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "email": null,
+      "mobile": null,
+      "address": null,
+      "service": null
+    },
+    {
+      "id": 16,
+      "name": null,
+      "email": null,
+      "mobile": null,
+      "address": null,
+      "service": null
+    },
+    {
+      "id": 17,
+      "name": null,
+      "email": null,
+      "mobile": null,
+      "address": null,
+      "service": null
+    },
+    {
+      "id": 18,
+      "name": null,
+      "email": null,
+      "mobile": null,
+      "address": null,
+      "service": null
+    },
+    {
+      "id": 19,
+      "name": null,
+      "email": null,
+      "mobile": null,
+      "address": null,
+      "service": null
+    },
+    {
+      "id": 20,
+      "name": null,
+      "email": null,
+      "mobile": null,
+      "address": null,
+      "service": null
     }
   ],
   "signup": [
@@ -84,6 +132,34 @@
       "email": "admin@yopmail.com",
       "password": "123456",
       "id": 5
+    },
+    {
+      "name": "test",
+      "contact": "6555555555555",
+      "email": "admin@yopmail.com",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "name": "",
+      "contact": "",
+      "email": "",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "name": "",
+      "contact": "",
+      "email": "",
+      "password": "",
+      "id": 8
+    },
+    {
+      "name": "test@test.com",
+      "contact": "admin@yopmail.com",
+      "email": "admin@yopmail.com",
+      "password": "123456",
+      "id": 9
     }
   ],
   "comments": [],
