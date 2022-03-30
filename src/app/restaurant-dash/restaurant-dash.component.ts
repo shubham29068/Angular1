@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { RestaurantData } from './restaurant.model';
 import { ApiService } from '../shared/api.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-restaurant-dash',
   templateUrl: './restaurant-dash.component.html',
   styleUrls: ['./restaurant-dash.component.css']
 })
 export class RestaurantDashComponent implements OnInit {
-
+  submitted: boolean = false;
   formValue!: FormGroup
   restaurantModelObj: RestaurantData = new RestaurantData
   allRestaurantData: any
@@ -20,11 +21,11 @@ export class RestaurantDashComponent implements OnInit {
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
-      name: [''],
-      email: [''],
-      mobile: [''],
-      address: [''],
-      service: ['']
+      name: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      mobile: new FormControl(null, [Validators.required]),
+      address: new FormControl(null, [Validators.required]),
+      service: new FormControl(null, [Validators.required]),
     })
     this.getAllData()
   }
@@ -41,14 +42,24 @@ export class RestaurantDashComponent implements OnInit {
       this.restaurantModelObj.address = this.formValue.value.address,
       this.restaurantModelObj.service = this.formValue.value.service
 
-
+    this.submitted = true;
     this.api.postRestaurant(this.restaurantModelObj).subscribe(res => {
-      console.log(res);
-      alert("Restro Record added successfully")
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your Addition Data has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
       this.formValue.reset()
       this.getAllData()
     }, err => {
-      alert("Error 404")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
     }
     )
   }
@@ -83,7 +94,23 @@ export class RestaurantDashComponent implements OnInit {
   // delete data
   deleteRestro(data: any) {
     this.api.deleteRestaurant(data.id).subscribe(res => {
-      alert("Restaurant Record deleted")
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
       this.getAllData()
     })
   }
@@ -108,12 +135,28 @@ export class RestaurantDashComponent implements OnInit {
 
 
     this.api.updateRestaurant(this.restaurantModelObj, this.restaurantModelObj.id).subscribe(res => {
-      alert("Updated Records")
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your updates has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
       let ref = document.getElementById('clear');
       ref?.click();
       this.formValue.reset()
       this.getAllData();
     })
 
+  }
+  form() {
+
+    this.formValue = this.formBuilder.group({
+      name: new FormControl(null, [Validators.required]),
+      phone: ['', [Validators.required, Validators.required]],
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      address: new FormControl(null, [Validators.required]),
+      service: new FormControl(null, [Validators.required])
+    })
   }
 }

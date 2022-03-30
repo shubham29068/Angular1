@@ -8,11 +8,25 @@
                 <form [formGroup]="signupForm" (ngSubmit)="signup()">
                     <div class="mb-3">
                         <label  class="form-label">Name</label>
-                        <input formControlName="name" type="email" class="form-control" placeholder="Enter Name" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input formControlName="name" [maxlength]="30" [minlength]="3" type="email" class="form-control" placeholder="Enter Name" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div class="text-danger" *ngIf="submitted && signupForm
+                        && signupForm.controls
+                        && signupForm.controls['name']
+                        && signupForm.controls['name']['errors']
+                        && signupForm.controls['name']['errors']['maxlength']">
+                      {{signupForm.controls['name']['errors']['maxlength']['requiredLength']}}
+                           Digit required  </div>
+                           <div class="text-danger" *ngIf="submitted && signupForm
+                           && signupForm.controls
+                           && signupForm.controls['name']
+                           && signupForm.controls['name']['errors']
+                           && signupForm.controls['name']['errors']['minlength']">
+                         {{signupForm.controls['name']['errors']['minlength']['requiredLength']}}
+                              Digit required  </div>
                       </div>
                         <div class="mb-3">
                           <label class="form-label">Phone/Mobile No.</label><br>
-                          <input placeholder="Enter Mobile Number" formControlName="phone" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                          <input placeholder="Enter Mobile Number" [minLength]="10" [maxlength]="10" formControlName="phone" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                           <div>
                             <div class="text-danger" *ngIf="submitted && signupForm 
                             && signupForm.controls 
@@ -20,6 +34,20 @@
                             && signupForm.controls['phone']['errors'] 
                             && signupForm.controls['phone']['errors']['required']">Mobile number is required</div>
                           </div>
+                        <div class="text-danger" *ngIf="submitted && signupForm
+                        && signupForm.controls
+                        && signupForm.controls['phone']
+                        && signupForm.controls['phone']['errors']
+                        && signupForm.controls['phone']['errors']['minlength']">
+                      {{signupForm.controls['phone']['errors']['minlength']['requiredLength']}}
+                           Digit required  </div>
+                           <div class="text-danger" *ngIf="submitted && signupForm
+                           && signupForm.controls
+                           && signupForm.controls['phone']
+                           && signupForm.controls['phone']['errors']
+                           && signupForm.controls['phone']['errors']['maxlength']">
+                         {{signupForm.controls['phone']['errors']['maxlength']['requiredLength']}}
+                              Digit required  </div>
                         </div>
                     <div class="mb-3">
                       <label  class="form-label">Email address</label>
@@ -41,7 +69,14 @@
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Password</label>
-                      <input formControlName="password" type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                      <input formControlName="password" [maxlength]="20" type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                      <div class="text-danger" *ngIf="submitted && signupForm
+                      && signupForm.controls
+                      && signupForm.controls['password']
+                      && signupForm.controls['password']['errors']
+                      && signupForm.controls['password']['errors']['maxlength']">
+                    {{signupForm.controls['password']['errors']['maxlength']['requiredLength']}}
+                         Digit required  </div>
                     </div>
                   
                     <button type="submit" class="btn btn-primary">Signup</button>

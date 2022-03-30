@@ -6,14 +6,36 @@
                     <h1>Restro login</h1><hr>
                 </div>
                 <form [formGroup]="loginForm" (ngSubmit)="loggedIn()">
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input formControlName="email" type="email" placeholder="Enter Registered Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div class="mb-3">
+                    <label  class="form-label">Email address</label>
+                    <input formControlName="email" type="email" class="form-control" pattern="[^ @]*@[^ @]*" placeholder="Enter your email">
+                    <div>
+                      <div class="text-danger" *ngIf="submitted && loginForm 
+                      && loginForm.controls 
+                      && loginForm.controls['email'] 
+                      && loginForm.controls['email']['errors'] 
+                      && loginForm.controls['email']['errors']['required']">Email is required</div>
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input formControlName="password" type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                    <div>
+                      <div class="text-danger" *ngIf="submitted && loginForm 
+                      && loginForm.controls 
+                      && loginForm.controls['email'] 
+                      && loginForm.controls['email']['errors'] 
+                      && loginForm.controls['email']['errors']['pattern']">Incorrect pattern</div>
                     </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input formControlName="password" [maxlength]="20" type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                    <div class="text-danger" *ngIf="submitted && loginForm
+                    && loginForm.controls
+                    && loginForm.controls['password']
+                    && loginForm.controls['password']['errors']
+                    && loginForm.controls['password']['errors']['maxlength']">
+                  {{loginForm.controls['password']['errors']['maxlength']['requiredLength']}}
+                       Digit required  </div>
+                  </div>
+                
                   
                     <button type="submit" class="btn btn-primary">Login</button>
                   </form>

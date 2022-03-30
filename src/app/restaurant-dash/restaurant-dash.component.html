@@ -12,7 +12,7 @@
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold">Restaurant Record Manage</h1>
        <p class="col-md-8 fs-4">You can save Records of restro using this App </p>
-       <a class="btn btn-primary btn-lg" type="button" target="blank" href="http://google.com">Restro</a>
+       <a class="btn btn-primary btn-lg" type="button" target="blank" href="https://fs.tajhotels.com/adfs/ls/?client-request-id=9e9296cc-0a02-4c2a-aa4c-fea18b081d2b&username=&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline&wctx=estsredirect%3d2%26estsrequest%3drQIIAY2RPW_TUBiFc-PWNEGICsGIBBVT0Y19_XFvHInBwSHNR9NAmlB7ierPJE5yndiJaf4AiC4VA0OFkMiYEQkJdWGvGDL3FzAiJiZEIhbGnuHovHqXo-fsMiiDco_4fxLg2iHvughazjr9p_Gd9Pb39-8-JtO71UX1z6fTrfuPz8Gt6LjXoZHTDzMWHSzATieKgjDHcXQS9Sn1M9R1u5YjYnn952h8zH0FYAnAIkmwSARFISLmZVHhsSIKGdvGLrFtHq4uEUqmg6FJshZ0edlEsmkT5OCr5O0DdRJ1hLXRcXfm_EqmXDoetAMaRufMW6Dp4SstLMWaqh5C1ddeopFY7ulGJcINVJHUsh40K1MP7k2wX8xKRM6S4omb9yx_VrL40X4-Xzhs7pflQqVYe9HI67rptYKWJk2pXtODfrdg4Oa0KhyFbvsE1jyEiL6qKIYdxayHdUNoW6Nu1WyP9uIFcy22nxl2RWdAh5cMSwNn2LWXG-D3BphvrqCnKvc-LOfOsy_fTucP068Tl5tciYt1zYq8LPGREbsNY6YdTbOtkq_IB51Gbyg_l-rhTO33auoTKYfOWHDGshdsaovZTuwwT-voBwt-suDNjcRF6hqLXaXvCrywqkwg4h8gPifgnCwby5vgLw2">Restro</a>
     </div>
 </div>
 <!--Table display-->
@@ -55,16 +55,43 @@
     <form [formGroup]="formValue">
       <div class="form-group">
         <label for="exampleInputEmail1">Name</label>
-        <input type="email" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <input type="email" formControlName="name" [maxlength]="25" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+        <div class="text-danger" *ngIf="submitted && formValue
+                        &&  formValue.controls
+                        &&  formValue.controls['name']
+                        && formValue.controls['name']['errors']
+                        &&  formValue.controls['name']['errors']['maxlength']">
+                      {{ formValue.controls['name']['errors']['maxlength']['requiredLength']}}
+                           Digit required  </div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Email</label>
         <input type="text" formControlName="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Email">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Mobile</label>
-        <input type="text" formControlName="mobile" class="form-control" id="exampleInputPassword1" placeholder="Enter Mobile Number">
+        <label for="exampleInputPassword1">phone</label>
+        <input type="text" formControlName="phone" class="form-control" id="exampleInputPassword1" placeholder="Enter Mobile Number">
+        <div>
+          <div class="text-danger" *ngIf="submitted && formValue 
+          && formValue.controls 
+          && formValue.controls['phone'] 
+          && formValue.controls['phone']['errors'] 
+          && formValue.controls['phone']['errors']['required']">Mobile number is required</div>
+        </div>
+      <div class="text-danger" *ngIf="submitted && formValue
+      && formValue.controls
+      && formValue.controls['phone']
+      && formValue.controls['phone']['errors']
+      && formValue.controls['phone']['errors']['minlength']">
+    {{formValue.controls['phone']['errors']['minlength']['requiredLength']}}
+         Digit required  </div>
+         <div class="text-danger" *ngIf="submitted && formValue
+         && formValue.controls
+         && formValue.controls['phone']
+         && formValue.controls['phone']['errors']
+         && formValue.controls['phone']['errors']['required']">
+       {{formValue.controls['phone']['errors']['maxlength']['requiredLength']}}
+            Digit required  </div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Address</label>

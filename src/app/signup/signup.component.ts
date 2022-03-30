@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -27,14 +27,29 @@ export class SignupComponent implements OnInit {
   // make method to create user
   signup() {
     this.submitted = true;
-    console.log('this.signupForm', this.signupForm)
-    if (!this.signupForm.valid) { alert("fill all fields"); return }
+    if (!this.signupForm.valid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      }); return
+    }
     this._http.post<any>("http://localhost:3000/signup", this.signupForm.value).subscribe(res => {
-      alert("Registration successfull")
+      Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+      )
       this.signupForm.reset()
       this.router.navigate(['login'])
     }, err => {
-      alert("Error 404")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
     }
     )
   }

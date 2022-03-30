@@ -1,7 +1,10 @@
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+// import{swal} from 'sweetalert'
+// import swal from 'sweetalert';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  // submitted: boolean = false;
+  submitted: boolean = false;
   loginForm!: FormGroup
   constructor(private formBuilder: FormBuilder, private _http: HttpClient, private router: Router) {
 
@@ -23,18 +26,34 @@ export class LoginComponent implements OnInit {
   }
   // login define
   loggedIn() {
-    // this.submitted = true;
-    if (!this.loginForm.valid) { alert("Invalid form"); return }
+    this.submitted = true;
+    if (!this.loginForm.valid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      }); return
+    }
     this._http.get<any>("http://localhost:3000/signup").subscribe(res => {
       const user = res.find((a: any) => {
         return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password
       })
       if (user) {
-        alert("Login successfull")
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
         this.loginForm.reset()
         this.router.navigate(['restaurant'])
       } else {
-        alert("User not Found")
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
       }
     })
   }
