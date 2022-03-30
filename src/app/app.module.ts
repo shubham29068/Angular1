@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { GooglePayButtonComponent, GooglePayButtonModule } from '@google-pay/button-angular';
+import { AddEditControlsComponent } from './add-edit-controls/add-edit-controls.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { GooglePayButtonComponent, GooglePayButtonModule } from '@google-pay/but
     RestaurantDashComponent,
     LoginComponent,
     SignupComponent,
+    AddEditControlsComponent,
   ],
   imports: [
     BrowserModule,

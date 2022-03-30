@@ -9,20 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  submitted: boolean = false;
   signupForm!: FormGroup
-  constructor(private formBuilder: FormBuilder, private _http: HttpClient, private router: Router) { }
-
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder, private _http: HttpClient, private router: Router) {
     this.signupForm = this.formBuilder.group({
       name: new FormControl(null, [Validators.required]),
-      contact: new FormControl(null, [Validators.required]),
+      phone: ['', [Validators.required, Validators.required]],
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required])
     })
   }
+
+  ngOnInit(): void {
+
+    console.log('this.signupForm', this.signupForm)
+  }
   // make method to create user
   signup() {
+    this.submitted = true;
+    console.log('this.signupForm', this.signupForm)
     if (!this.signupForm.valid) { alert("fill all fields"); return }
     this._http.post<any>("http://localhost:3000/signup", this.signupForm.value).subscribe(res => {
       alert("Registration successfull")
@@ -34,9 +39,10 @@ export class SignupComponent implements OnInit {
     )
   }
   form() {
+
     this.signupForm = this.formBuilder.group({
       name: new FormControl(null, [Validators.required]),
-      contact: new FormControl(null, [Validators.required]),
+      phone: ['', [Validators.required, Validators.required]],
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required])
     })

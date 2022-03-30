@@ -47,6 +47,14 @@
       "mobile": "987969876",
       "address": "mohali",
       "service": "coffee"
+    },
+    {
+      "id": 16,
+      "name": "daps",
+      "email": "daps@dap.com",
+      "mobile": "987867980",
+      "address": "mohali phase 10",
+      "service": "food"
     }
   ],
   "signup": [
@@ -112,6 +120,48 @@
       "email": "admin@yopmail.com",
       "password": "123456",
       "id": 9
+    },
+    {
+      "name": "test",
+      "contact": "34864568",
+      "email": "sacfdb@klvcj.com",
+      "password": "hsgcd",
+      "id": 10
+    },
+    {
+      "name": "test",
+      "contact": "test",
+      "email": "admin@yopmail.com",
+      "password": "123456",
+      "id": 11
+    },
+    {
+      "name": "qqqq",
+      "contact": "qqqqq",
+      "email": "admifdgn@yopmail.com",
+      "password": "123456",
+      "id": 12
+    },
+    {
+      "name": "adminm",
+      "phone": "8995955562",
+      "email": "shubham@gmail.com",
+      "password": "123456",
+      "id": 13
+    },
+    {
+      "name": "shubham",
+      "phone": "8957788866",
+      "email": "shubhanm2v@gmail.com",
+      "password": "qwerty",
+      "id": 14
+    },
+    {
+      "name": "e",
+      "phone": "112",
+      "email": "trdtd@g.com",
+      "password": "f",
+      "id": 15
     }
   ],
   "comments": [],

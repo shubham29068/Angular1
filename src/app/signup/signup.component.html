@@ -10,13 +10,34 @@
                         <label  class="form-label">Name</label>
                         <input formControlName="name" type="email" class="form-control" placeholder="Enter Name" id="exampleInputEmail1" aria-describedby="emailHelp">
                       </div>
-                      <div class="mb-3">
-                        <label  class="form-label">Contact</label>
-                        <input formControlName="contact" type="text" class="form-control" placeholder="Enter Contact Number" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      </div>
+                        <div class="mb-3">
+                          <label class="form-label">Phone/Mobile No.</label><br>
+                          <input placeholder="Enter Mobile Number" formControlName="phone" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                          <div>
+                            <div class="text-danger" *ngIf="submitted && signupForm 
+                            && signupForm.controls 
+                            && signupForm.controls['phone'] 
+                            && signupForm.controls['phone']['errors'] 
+                            && signupForm.controls['phone']['errors']['required']">Mobile number is required</div>
+                          </div>
+                        </div>
                     <div class="mb-3">
                       <label  class="form-label">Email address</label>
-                      <input formControlName="email" type="text" class="form-control" placeholder="Enter your Email Address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input formControlName="email" type="email" class="form-control" pattern="[^ @]*@[^ @]*" placeholder="Enter your email">
+                      <div>
+                        <div class="text-danger" *ngIf="submitted && signupForm 
+                        && signupForm.controls 
+                        && signupForm.controls['email'] 
+                        && signupForm.controls['email']['errors'] 
+                        && signupForm.controls['email']['errors']['required']">Email is required</div>
+                      </div>
+                      <div>
+                        <div class="text-danger" *ngIf="submitted && signupForm 
+                        && signupForm.controls 
+                        && signupForm.controls['email'] 
+                        && signupForm.controls['email']['errors'] 
+                        && signupForm.controls['email']['errors']['pattern']">Incorrect pattern</div>
+                      </div>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Password</label>
