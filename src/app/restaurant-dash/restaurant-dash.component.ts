@@ -27,7 +27,7 @@ export class RestaurantDashComponent implements OnInit {
           Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Your updates has been saved',
+            title: 'Your payment done',
             showConfirmButton: false,
             timer: 1500
           })
