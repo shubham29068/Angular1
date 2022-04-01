@@ -55,30 +55,6 @@
       "mobile": "9206402441",
       "address": "sdv",
       "service": "sxa"
-    },
-    {
-      "id": 20,
-      "name": "test",
-      "email": "drumbell@kdc.com",
-      "mobile": null,
-      "address": "nvbdjhbjkxcb",
-      "service": "jhhvckjdh"
-    },
-    {
-      "id": 21,
-      "name": "test",
-      "email": "sacsac",
-      "mobile": null,
-      "address": "asca",
-      "service": "csa"
-    },
-    {
-      "id": 24,
-      "name": "esddc",
-      "email": "vfsb",
-      "mobile": null,
-      "address": "fbfgb",
-      "service": "vbsfgh"
     }
   ],
   "signup": [
@@ -249,6 +225,13 @@
       "email": "jsdbjhsb@kv.com",
       "password": "bndfjkfbdkjbhudyfg7y",
       "id": 24
+    },
+    {
+      "name": "ttttttt",
+      "phone": "8965254896",
+      "email": "hjhjhjh@gg.com",
+      "password": "123",
+      "id": 25
     }
   ],
   "comments": [],

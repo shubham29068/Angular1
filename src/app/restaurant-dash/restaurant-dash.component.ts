@@ -22,9 +22,15 @@ export class RestaurantDashComponent implements OnInit {
       {
         id: "#myPaypalButton",
         currency: "USD",
-        value: "100.00",
+        value: "2500.00",
         onApprove: (details) => {
-          alert("Transaction successfull")
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your updates has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       })
   }
