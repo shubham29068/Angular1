@@ -4,6 +4,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { RestaurantData } from './restaurant.model';
 import { ApiService } from '../shared/api.service';
 import Swal from 'sweetalert2';
+import { render } from 'creditcardpayments/creditCardPayments'
 @Component({
   selector: 'app-restaurant-dash',
   templateUrl: './restaurant-dash.component.html',
@@ -16,7 +17,17 @@ export class RestaurantDashComponent implements OnInit {
   allRestaurantData: any
   showAdd!: boolean
   showbtn!: boolean
-  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private api: ApiService) { }
+  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private api: ApiService) {
+    render(
+      {
+        id: "#myPaypalButton",
+        currency: "USD",
+        value: "100.00",
+        onApprove: (details) => {
+          alert("Transaction successfull")
+        }
+      })
+  }
   // constructor() { }
 
   ngOnInit(): void {
@@ -159,4 +170,5 @@ export class RestaurantDashComponent implements OnInit {
       service: new FormControl(null, [Validators.required])
     })
   }
+
 }

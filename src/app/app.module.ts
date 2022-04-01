@@ -20,6 +20,7 @@ import { AddEditControlsComponent } from './add-edit-controls/add-edit-controls.
     LoginComponent,
     SignupComponent,
     AddEditControlsComponent,
+
   ],
   imports: [
     BrowserModule,
